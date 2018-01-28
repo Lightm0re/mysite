@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<link href ="{% static 'css/auth.css' %}" rel = "stylesheet">
+
+<body>
+<section class="container">
+    <div class="login">
+      <h1>Добро пожаловать!</h1>
+      <form method="post" action="">
+          {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+          {{ form.as_p }}
+      <button type="submit">Войти</button>
+      </form>
+    </div>
+
+
+  </section>
+</body>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+<head>
+    <title>АИС ГПВП "Ростелеком" </title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="{% static '/admin/css/main.css' %}"/>
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+    <script src="{% static '/admin/js/jquery.tablesorter.js' %}"></script>
+<script src="{% static '/admin/js/jquery-latest.js' %}"></script>
+<script src="{% static '/admin/js/tablesorter.js' %}"></script>
+</head>
+<body>
+{% block sidebar %}
+{% endblock %}
+{% block wrapper %}
+{% endblock wrapper %}
+{% block footer %}
+{% endblock %}
+<!-- Scripts -->
+<script src="{% static '/admin/js/jquery.min.js' %}"></script>
+<script src="{% static '/admin/js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static '/admin/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static '/admin/js/skel.min.js' %}"></script>
+<script src="{% static '/admin/js/util.js' %}"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="{% static '/admin/js/main.js' %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+{% extends 'Store/base.html' %}
+{% load staticfiles %}
+{% block sidebar %}
+<!-- Sidebar -->
+<section id="sidebar">
+    <div class="inner">
+        <nav>
+            <ul>
+                <li><a href="#intro">Главная</a></li>
+                <li><a href="#one">Таблица учета выдачи расходных материалов</a></li>
+                <li><a href="#two">Склад</a></li>
+                <li><a href="admin">Админ. панель</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+{% endblock %}
+<!-- Wrapper -->
+{% block wrapper %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+    <div id="wrapper">
+    <!-- Intro -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+            <h1><img src="{% static "images/logo.png" %}" alt="logo"/></h1>
+            <p>Для перехода в меню администратора, кликайте <a href="admin">СЮДА</a><br/>
+        </div>
+    </section>
+       <script src="{% static '/admin/js/jquery.tablesorter.js' %}"></script>
+<script src="{% static '/admin/js/jquery-latest.js' %}"></script>
+    <script src="{% static '/admin/js/tablesorter.js' %}"></script>
+    <!-- one -->
+    <section id="one" class="wrapper style3 fade-up">
+        <div class="inner">
+            <h2>Таблица учета выдачи расходных материалов</h2>
+            <p>Таблица учета выдачи расходных материалов отображает движение складских единиц.</p>
+            <div class="features">
+                <table id ="myTable" cellspacing='0' class = "tablesorter.js">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Тип</th>
+                        <th>Название</th>
+                        <th>Количество</th>
+                        <th>Заметка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in sumas %}
+                        <tr>
+                            <td>{{ i.date_out }}</td>
+                            <td>{{ i.name__name }}</td>
+                            <td>{{ i.type__name }}</td>
+                            <td>{{ i.summaout }}</td>
+                            <td>{{ i.tip }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            <ul class="actions">
+                <li><a href="/admin/Store/moveitem/add/" class="button">Добавить запись</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- two -->
+    <section id="two" class="wrapper style1 fade-up">
+        <div class="inner">
+            <h1>Общая таблица расходных материалов</h1>
+            <table class="simple-little-table" cellspacing='0'>
+                <tr>
+                    <th>Тип</th>
+                    <th>Название</th>
+                    <th>Название фирмы</th>
+                    <th>Количество</th>
+                </tr>
+                {% for i in cons %}
+                    <tr>
+                        <td>{{ i.name__name }}</td>
+                        <td>{{ i.type__name }}</td>
+                        <td>{{ i.type__firm__name }}</td>
+                        <td>{{ i.summa }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}
+{% block footer %}
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Группа поддержки внутренних пользователей. ПАО "Ростелеком"</li>
+            <li>Портал  <a href="http://portal.rt.ru">dv.rt.ru</a></li>
+        </ul>
+    </div>
+</footer>
+
+{% endblock %}
+
